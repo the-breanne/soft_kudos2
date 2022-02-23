@@ -1,14 +1,13 @@
-# vue-firebase-crud-app
-This is a step by step tutorial that explains how to build a Vue.js 2+ CRUD web application using Firebase database.
+# vue-kudos
 
-[Vue.js 2 + Firebase: Build Vue CRUD App with Cloud Firestore](https://www.positronx.io/vue-js-firebase-build-vue-crud-app-with-cloud-firestore/)
-
-## Project setup
-```
+# install dependencies
 npm install
-```
 
-### Compiles and hot-reloads for development
-```
+# serve with hot reload at localhost:8080
+npm run dev
+
+# build for production with minification
 npm run serve
-```
+
+# build for production and view the bundle analyzer report
+npm run build --report
