@@ -8,7 +8,7 @@
             <router-link class="nav-link pr-3" to="/">Home</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link pr-3" to="/list">Add Task</router-link>
+            <router-link class="nav-link pr-3" to="/add">Add Task</router-link>
           </li>
                     <li class="nav-item">
             <router-link class="nav-link pr-3" to="/list">View Task List</router-link>
