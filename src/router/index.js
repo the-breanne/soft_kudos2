@@ -6,6 +6,11 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
+    name: 'home',
+    component: () => import('../components/Home')
+  },
+  {
+    path: '/add',
     name: 'add',
     component: () => import('../components/UserCreate')
   },

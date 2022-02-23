@@ -5,11 +5,16 @@
         <a class="navbar-brand float-left">Kudos</a>
         <ul class="nav navbar-nav flex-row float-right">
           <li class="nav-item">
-            <router-link class="nav-link pr-3" to="/">Add Task</router-link>
+            <router-link class="nav-link pr-3" to="/">Home</router-link>
           </li>
           <li class="nav-item">
+            <router-link class="nav-link" to="/list">Add Task List</router-link>
+          </li>
+                    <li class="nav-item">
             <router-link class="nav-link" to="/list">View Task List</router-link>
           </li>
+          
+          
         </ul>
       </div>
     </nav>
