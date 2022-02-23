@@ -5,20 +5,20 @@
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Email</th>
-                        <th>Phone</th>
+                        <th>Description</th>
+                        <th>Priority</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="user in Users" :key="user.key">
-                        <td>{{ user.name }}</td>
-                        <td>{{ user.email }}</td>
-                        <td>{{ user.phone }}</td>
+                    <tr v-for="task in Tasks" :key="task.key">
+                        <td>{{ task.name }}</td>
+                        <td>{{ task.description }}</td>
+                        <td>{{ task.priority }}</td>
                         <td>
-                            <router-link :to="{name: 'edit', params: { id: user.key }}" class="btn btn-primary">Edit
+                            <router-link :to="{name: 'edit', params: { id: task.key }}" class="btn btn-primary">Edit
                             </router-link>
-                            <button @click.prevent="deleteUser(user.key)" class="btn btn-danger">Delete</button>
+                            <button @click.prevent="deleteTask(task.key)" class="btn btn-danger">Delete</button>
                         </td>
                     </tr>
                 </tbody>
@@ -33,26 +33,26 @@
     export default {
         data() {
             return {
-                Users: []
+                Tasks: []
             }
         },
         created() {
-            db.collection('users').onSnapshot((snapshotChange) => {
-                this.Users = [];
+            db.collection('tasks').onSnapshot((snapshotChange) => {
+                this.Tasks = [];
                 snapshotChange.forEach((doc) => {
-                    this.Users.push({
+                    this.Tasks.push({
                         key: doc.id,
                         name: doc.data().name,
-                        email: doc.data().email,
-                        phone: doc.data().phone
+                        description: doc.data().description,
+                        priority: doc.data().priority
                     })
                 });
             })
         },
         methods: {
-            deleteUser(id){
+            deleteTask(id){
               if (window.confirm("Do you really want to delete?")) {
-                db.collection("users").doc(id).delete().then(() => {
+                db.collection("tasks").doc(id).delete().then(() => {
                     console.log("Document deleted!");
                 })
                 .catch((error) => {
