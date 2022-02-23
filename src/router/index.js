@@ -23,11 +23,6 @@ const routes = [
     path: '/edit/:id',
     name: 'edit',
     component: () => import('../components/UserEdit')
-  },
-  {
-    path: '/auth/',
-    name: 'Auth',
-    component: () => import('../components/Auth')
   }
 ]
 
