@@ -23,7 +23,12 @@ const routes = [
     path: '/edit/:id',
     name: 'edit',
     component: () => import('../components/UserEdit')
-  }
+  },
+  {
+    path: '/meetings',
+    name: 'meetinngs',
+    component: () => import('../components/Meeting')
+  },
 ]
 
 const router = new VueRouter({

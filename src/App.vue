@@ -10,8 +10,11 @@
           <li class="nav-item">
             <router-link class="nav-link pr-3" to="/add">Add Task</router-link>
           </li>
-                    <li class="nav-item">
+          <li class="nav-item">
             <router-link class="nav-link pr-3" to="/list">View Task List</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link pr-3" to="/meeting">Request Meeting</router-link>
           </li>
           
 
