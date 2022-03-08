@@ -29,6 +29,17 @@ const routes = [
     name: 'meetinngs',
     component: () => import('../components/Meeting')
   },
+  {
+    path: '/meetinglist',
+    name: 'meetinglist',
+    component: () => import('../components/MeetingList')
+  },
+  {
+    path: '/meetingedit/:id',
+    name: 'meetingedit',
+    component: () => import('../components/MeetingEdit')
+  }
+
 ]
 
 const router = new VueRouter({
