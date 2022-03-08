@@ -15,7 +15,6 @@
                         <td>{{ meeting.name }}</td>
                         <td>{{ meeting.description }}</td>
                         <td>{{ meeting.date }}</td>
-                        <td>{{ task.priority }}</td>
                         <td>
                             <router-link :to="{name: 'edit', params: { id: meeting.key }}" class="btn btn-primary">Edit
                             </router-link>
