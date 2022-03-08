@@ -1,7 +1,7 @@
 <template>
     <div class="row justify-content-center">
         <div class="col-md-5">
-            <h3 class="text-center">Add Meeting</h3>
+            <h3 class="text-center">Request Meeting</h3>
             <form @submit.prevent="onFormSubmit">
                 <div class="form-group">
                     <label>Name</label>
@@ -15,7 +15,7 @@
 
                 <div class="form-group">
                     <label>Date</label>
-                    <input type="text" class="form-control" v-model="meeting.priority" required>
+                    <input type="text" class="form-control" v-model="meeting.date" required>
                 </div>
 
                 <div class="form-group">
@@ -43,7 +43,7 @@
                     alert("Meeting successfully created!");
                     this.meeting.name = ''
                     this.meeting.description = ''
-                    this.meeting.priority = ''
+                    this.meeting.date = ''
                 }).catch((error) => {
                     console.log(error);
                 });
