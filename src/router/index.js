@@ -25,8 +25,8 @@ const routes = [
     component: () => import('../components/UserEdit')
   },
   {
-    path: '/meetings',
-    name: 'meetinngs',
+    path: '/meeting',
+    name: 'meeting',
     component: () => import('../components/Meeting')
   },
   {
