@@ -5,17 +5,17 @@
             <form @submit.prevent="onFormSubmit">
                 <div class="form-group">
                     <label>Request 1-on-1 With:</label>
-                    <input type="text" class="form-control" v-model="meetingRequest.name" required>
+                    <input type="text" class="form-control" v-model="meeting.name" required>
                 </div>
 
                 <div class="form-group">
                     <label>Date</label>
-                    <input type="text" class="form-control" v-model="meetingRequest.date" required>
+                    <input type="text" class="form-control" v-model="meeting.date" required>
                 </div>
 
                 <div class="form-group">
                     <label>Description</label>
-                    <input type="text" class="form-control" v-model="meetingRequest.description" required>
+                    <input type="text" class="form-control" v-model="meeting.description" required>
                 </div>
 
                 <div class="form-group">
@@ -33,18 +33,18 @@
     export default {
         data() {
             return {
-                meetingRequest: {
+                meeting: {
                 }
             }
         },
         methods: {
             onFormSubmit(event) {
                 event.preventDefault()
-                db.collection('meetingRequests').add(this.meetingRequest).then(() => {
+                db.collection('meetings').add(this.meeting).then(() => {
                     alert("Meeting successfully requested!");
-                    this.meetingRequest.name = ''
-                    this.meetingRequest.date = ''
-                    this.meetingRequest.description = ''
+                    this.meeting.name = ''
+                    this.meeting.date = ''
+                    this.meeting.description = ''
                 }).catch((error) => {
                     console.log(error);
                 });
