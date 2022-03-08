@@ -1,13 +1,13 @@
 import * as firebase from 'firebase';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCunPP4q16BqPnOdhBEWRn0QatJWMVjmKs",
-    authDomain: "task-list-522b3.firebaseapp.com",
-    projectId: "task-list-522b3",
-    storageBucket: "task-list-522b3.appspot.com",
-    messagingSenderId: "332540505517",
-    appId: "1:332540505517:web:c794faaffb91cf22bdc524"
-}
+    apiKey: "AIzaSyCwY4qIRkW_3-8p6Q_-by5ETiYKfOTJACk",
+    authDomain: "kudosproject-668dc.firebaseapp.com",
+    projectId: "kudosproject-668dc",
+    storageBucket: "kudosproject-668dc.appspot.com",
+    messagingSenderId: "23453393552",
+    appId: "1:23453393552:web:0f0624b5eafa6d4953ae15"
+  };
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 
