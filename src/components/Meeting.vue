@@ -1,16 +1,11 @@
 <template>
     <div class="row justify-content-center">
         <div class="col-md-5">
-            <h3 class="text-center">Request Meeting</h3>
+            <h3 class="text-center">Add Meeting</h3>
             <form @submit.prevent="onFormSubmit">
                 <div class="form-group">
-                    <label>Request 1-on-1 With:</label>
+                    <label>Name</label>
                     <input type="text" class="form-control" v-model="meeting.name" required>
-                </div>
-
-                <div class="form-group">
-                    <label>Date</label>
-                    <input type="text" class="form-control" v-model="meeting.date" required>
                 </div>
 
                 <div class="form-group">
@@ -19,7 +14,12 @@
                 </div>
 
                 <div class="form-group">
-                    <button class="btn btn-primary btn-block">Request</button>
+                    <label>Date</label>
+                    <input type="text" class="form-control" v-model="meeting.priority" required>
+                </div>
+
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block">Request Meeting</button>
                 </div>
             </form>
         </div>
@@ -28,7 +28,6 @@
 
 <script>
     import { db } from '../firebaseDb';
-
 
     export default {
         data() {
@@ -41,10 +40,10 @@
             onFormSubmit(event) {
                 event.preventDefault()
                 db.collection('meetings').add(this.meeting).then(() => {
-                    alert("Meeting successfully requested!");
+                    alert("Meeting successfully created!");
                     this.meeting.name = ''
-                    this.meeting.date = ''
                     this.meeting.description = ''
+                    this.meeting.priority = ''
                 }).catch((error) => {
                     console.log(error);
                 });
