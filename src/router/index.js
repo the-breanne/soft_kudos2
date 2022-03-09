@@ -38,6 +38,21 @@ const routes = [
     path: '/meetingedit/:id',
     name: 'meetingedit',
     component: () => import('../components/MeetingEdit')
+  },
+  {
+    path: '/feedback',
+    name: 'feedback',
+    component: () => import('../components/Feedback')
+  },
+  {
+    path: '/feedbacklist',
+    name: 'feedbacklist',
+    component: () => import('../components/FeedbackList')
+  },
+  {
+    path: '/feedbackedit/:id',
+    name: 'feedbackedit',
+    component: () => import('../components/FeedbackEdit')
   }
 
 ]

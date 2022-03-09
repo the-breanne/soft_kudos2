@@ -19,6 +19,12 @@
           <li class="nav-item">
             <router-link class="nav-link pr-3" to="/meetinglist">View Meetings</router-link>
           </li>
+                    <li class="nav-item">
+            <router-link class="nav-link pr-3" to="/feedback">Request Feedback</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link pr-3" to="/feedbacklist">View Feedback</router-link>
+          </li>
           
 
         </ul>

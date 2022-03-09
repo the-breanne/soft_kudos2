@@ -1,25 +1,21 @@
 <template>
     <div class="row justify-content-center">
         <div class="col-md-5">
-            <h3 class="text-center">Request Meeting</h3>
+            <h3 class="text-center">Request Feedback</h3>
             <form @submit.prevent="onFormSubmit">
                 <div class="form-group">
                     <label>Name</label>
-                    <input type="text" class="form-control" v-model="meeting.name" required>
+                    <input type="text" class="form-control" v-model="feedback.name" required>
                 </div>
 
                 <div class="form-group">
                     <label>Description</label>
-                    <input type="text" class="form-control" v-model="meeting.description" required>
+                    <input type="text" class="form-control" v-model="feedback.description" required>
                 </div>
 
-                <div class="form-group">
-                    <label>Date</label>
-                    <input type="text" class="form-control" v-model="meeting.date" required>
-                </div>
 
                 <div class="form-group">
-                    <button class="btn btn-primary btn-block">Request Meeting</button>
+                    <button class="btn btn-primary btn-block">Request Feedback</button>
                 </div>
             </form>
         </div>
@@ -32,18 +28,18 @@
     export default {
         data() {
             return {
-                meeting: {
+                feedback: {
                 }
             }
         },
         methods: {
             onFormSubmit(event) {
                 event.preventDefault()
-                db.collection('meetings').add(this.meeting).then(() => {
-                    alert("Meeting successfully requested!");
-                    this.meeting.name = ''
-                    this.meeting.description = ''
-                    this.meeting.date = ''
+                db.collection('feedbacks').add(this.feedback).then(() => {
+                    alert("Feedback successfully requested!");
+                    this.feedback.name = ''
+                    this.feedback.description = ''
+
                 }).catch((error) => {
                     console.log(error);
                 });
