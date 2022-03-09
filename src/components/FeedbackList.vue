@@ -6,7 +6,6 @@
                     <tr>
                         <th>Name</th>
                         <th>Description</th>
-                        <th>Date</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
