@@ -1,66 +1,82 @@
 import Vue from 'vue'
-import VueRouter from 'vue-router'
+import Router from 'vue-router'
+import Login from '@/components/Login'
+import Home from '@/components/Home'
+import Profile from '@/components/Profile'
+import Todos from '@/components/Todos'
 
-Vue.use(VueRouter)
+import firebase from 'firebase'
 
-const routes = [
-  {
-    path: '/',
-    name: 'home',
-    component: () => import('../components/Home')
+Vue.use(Router)
+
+let router = new Router({
+    mode: 'history',
+
+    routes: [{
+        path: '/profile',
+        name: 'Profile',
+        component: Profile,
+        meta: {
+          auth: true
+        }
+
+      },
+      {
+        path: '/todo',
+        name: 'Todos',
+        component: Todos,
+        meta: {
+          auth: true
+        }
+      }, {
+        path: '/login',
+        name: 'Login',
+        component: Login,
+        meta: {
+          guest: true
+        }
+
+      },
+      {
+        path: '/',
+        name: 'Home',
+        component: Home,
+
+      }
+    ]
+
   },
-  {
-    path: '/add',
-    name: 'add',
-    component: () => import('../components/UserCreate')
-  },
-  {
-    path: '/list',
-    name: 'list',
-    component: () => import('../components/UserList')
-  },
-  {
-    path: '/edit/:id',
-    name: 'edit',
-    component: () => import('../components/UserEdit')
-  },
-  {
-    path: '/meeting',
-    name: 'meeting',
-    component: () => import('../components/Meeting')
-  },
-  {
-    path: '/meetinglist',
-    name: 'meetinglist',
-    component: () => import('../components/MeetingList')
-  },
-  {
-    path: '/meetingedit/:id',
-    name: 'meetingedit',
-    component: () => import('../components/MeetingEdit')
-  },
-  {
-    path: '/feedback',
-    name: 'feedback',
-    component: () => import('../components/Feedback')
-  },
-  {
-    path: '/feedbacklist',
-    name: 'feedbacklist',
-    component: () => import('../components/FeedbackList')
-  },
-  {
-    path: '/feedbackedit/:id',
-    name: 'feedbackedit',
-    component: () => import('../components/FeedbackEdit')
+
+)
+
+
+router.beforeEach((to, from, next) => {
+
+  if (to.matched.some(record => record.meta.auth)) {
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        next()
+      } else {
+        next({
+          path: "/login",
+        })
+      }
+    })
+  } else if (to.matched.some(record => record.meta.guest)) {
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        next({
+          path: "/profile",
+        })
+      } else {
+        next()
+      }
+    })
+
+  } else {
+    next()
   }
 
-]
-
-const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes
 })
 
 export default router
